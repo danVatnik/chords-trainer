@@ -25,3 +25,8 @@
 h1 {
   font: size 6em;
 }
+
+.clickedChordPanel {
+  border-color: #0d6efd;
+  border-width: revert;
+}

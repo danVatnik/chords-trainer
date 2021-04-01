@@ -1,18 +1,14 @@
 import { Chords } from './chords';
-import { ChordPanel } from './chordPanel';
+import { ClickableChordPanel } from './clickableChordPanel';
 
-export const ChordsGrid = () => {
+export const ChordsGrid = ({ showTabs , onChordClick}) => {
 
     const displayChordsRow = (start, end) => {
         const items = [];
         for (let index = start; index <= end; index++) {
             items.push(
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <ChordPanel chord={Chords[index]} showTabs/>
-                        </div>
-                    </div>
+                <div className="col-3" key={index}>
+                    <ClickableChordPanel chord={Chords[index]} showTabs={showTabs} onChordClick={onChordClick}/>
                 </div>
             );
         }
@@ -21,19 +17,19 @@ export const ChordsGrid = () => {
 
     return(
         <div>
-            <div class="row">
+            <div className="row">
                 {displayChordsRow(0, 3)}
             </div>
             <hr/>
-            <div class="row">
+            <div className="row">
                 {displayChordsRow(4, 7)}
             </div>
             <hr/>
-            <div class="row">
+            <div className="row">
                 {displayChordsRow(8, 11)}
             </div>
             <hr/>
-            <div class="row">
+            <div className="row">
                 {displayChordsRow(12, 13)}
             </div>
             <hr/>
